@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
-function Form({ setUserGuess }) {
+function Form({ handleSubmitGuess }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newGuess = {
-      id: uuidv4(),
-      guess: inputValue,
-    };
-    setUserGuess((prevGuess) => [...prevGuess, newGuess]);
+    handleSubmitGuess(inputValue);
     setInputValue("");
   };
 

@@ -13,10 +13,14 @@ console.info({ answer });
 function Game() {
   const [userGuess, setUserGuess] = useState([]);
 
+  const handleSubmitGuess = (input) => {
+    setUserGuess([...userGuess, input]);
+  };
+
   return (
     <>
       <UserGuess userGuess={userGuess} />
-      <Form setUserGuess={setUserGuess} />
+      <Form handleSubmitGuess={handleSubmitGuess} />
     </>
   );
 }
